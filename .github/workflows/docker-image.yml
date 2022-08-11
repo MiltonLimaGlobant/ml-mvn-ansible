@@ -1,0 +1,30 @@
+name: Dockerhub-hubofertas-front
+
+on:
+  workflow_dispatch:
+  
+permissions:
+      id-token: write
+      contents: read
+
+jobs:
+  build:
+   
+    runs-on: ubuntu-latest
+    
+    steps:
+     
+      - name: Build Docker image        
+        id: build-image
+        uses: actions/checkout@v3    
+      - run: |
+            docker build . -t interdimensional/ml-mvn-ansible:latest
+
+      - name: Push Docker image        
+        id: push-image
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          username: ${{ secrets.DOCKERHUB_USR }}
+          password: ${{ secrets.DOCKERHUB_PwD }}       
+      - run: |
+            docker push interdimensional/ml-mvn-ansible:latest
