@@ -1,4 +1,4 @@
-name: Dockerhub-hubofertas-front
+name: Dockerhub mvn-ansible
 
 on:
   workflow_dispatch:
