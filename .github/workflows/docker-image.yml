@@ -18,7 +18,7 @@ jobs:
         id: build-image
         uses: actions/checkout@v3    
       - run: |
-            docker build . -t interdimensional/ml-mvn-ansible:latest
+            docker build . -t interdimensional/mlnt-mvn-ansible:latest
 
       - name: Push Docker image        
         id: push-image
@@ -27,4 +27,4 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USR }}
           password: ${{ secrets.DOCKERHUB_PwD }}       
       - run: |
-            docker push interdimensional/ml-mvn-ansible:latest
+            docker push interdimensional/mlnt-mvn-ansible:latest
