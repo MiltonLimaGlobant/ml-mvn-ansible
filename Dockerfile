@@ -11,3 +11,4 @@ RUN python3 -m pip install --user ansible \
 
 RUN mkdir -p /etc/ansible
 RUN echo "localhost" > /etc/ansible/hosts
+RUN export PATH=$PATH:/root/.local/bin
